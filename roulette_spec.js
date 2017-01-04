@@ -1,13 +1,14 @@
 var roulette_tester = {
 
-  // init: function(rouletteObj){
-  //   console.log("Initializing test...");
-  //   // this.sprintObj = sprintObj;
-  //   // this.testLargestEl();
+  init: function(rouletteObj){
+    console.log("Initializing test...");
+    // this.sprintObj = sprintObj;
+    // this.testLargestEl();
     // this.rouletteObj = routletteObj;
-    // this.test
-  // },
-  var roulette = new Roulette(100);
+    this.roulette = rouletteObj;
+    this.testFunds();
+    this.displayResults();
+  },
 
   results: {},
 
@@ -24,8 +25,8 @@ var roulette_tester = {
   },
 
   testFunds: function() {
-    this.results.funds = this.assert_equal(roulette.funds, 100)
-  }
+    this.results.funds = this.assert_equal(this.roulette.funds, 100)
+  },
 
   displayResults: function(){
     console.log("Displaying results...");
@@ -35,4 +36,4 @@ var roulette_tester = {
   }
 }
 
-// $(document).ready( function(){ tester.init( sprintFunctions )});
+$(document).ready( function(){ roulette_tester.init( new Roulette(100) )});
